@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Container, Paper, TextField, Button, Box, Typography, List, ListItem, ListItemText, Divider } from '@mui/material';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:5001');
+const SocketUri = process.env.SOCKET_IO_URI
+const SocketPORT = process.env.SOCKET_IO_PORT
+
+const socket = io(`${SocketUri}:${SocketPORT}`);
 
 function App() {
   const [username, setUsername] = useState('');
